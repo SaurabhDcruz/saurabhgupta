@@ -87,6 +87,7 @@ export default function NeuralNav() {
         }
     }, [menuOpen])
 
+
     const handleNavClick = (id) => {
         setCurrentSection(id)
         toggleMenu()
@@ -161,6 +162,20 @@ export default function NeuralNav() {
                                     <div className="item-glow" />
                                 </button>
                             ))}
+                        </div>
+
+                        <div className="terminal-action-hub">
+                            <a
+                                href="/assets/resume/Saurabh%20Gupta%202.0.pdf"
+                                download
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="tactical-download-btn"
+                            >
+                                <span className="btn-prefix">GET_DATA://</span>
+                                <span className="btn-label">DOWNLOAD_CV_v2.0.pdf</span>
+                                <div className="btn-scanner" />
+                            </a>
                         </div>
 
                         <div className="terminal-bottom">
