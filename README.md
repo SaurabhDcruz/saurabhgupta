@@ -1,8 +1,62 @@
-# Immersive WebGL Experience
+# Saurabh Gupta | UI UX & Frontend Developer
 
-A cinematic React + Vite experience built with Three.js, GSAP, Lenis, and Zustand.
+Modern portfolio showcasing immersive, high-performance web experiences built using React, GSAP, and Three.js.
 
-## Getting started
+---
+
+## 🔗 Live Demo
+
+👉 [https://dcruz-portfolio.vercel.app](https://dcruz-portfolio.vercel.app)
+
+---
+
+## 🚀 About
+
+I am a UI UX & Frontend Developer specializing in creating cinematic, interactive, and visually engaging web experiences. 
+This portfolio demonstrates my expertise in modern frontend technologies, animation systems, and 3D web development.
+
+---
+
+## 🛠 Tech Stack
+
+* React + Vite
+* Three.js (React Three Fiber)
+* GSAP + ScrollTrigger
+* Lenis (Smooth Scroll)
+* Zustand (State Management)
+
+---
+
+## ⚡ Features
+
+* Smooth Lenis-powered scrolling
+* GSAP ScrollTrigger timeline and scroll sync
+* React Three Fiber canvas with postprocessing
+* Custom cursor & magnetic interactions
+* Loader screen with progress animation
+* Responsive glassmorphism UI system
+
+---
+
+## 📸 Preview
+
+![Portfolio Preview](./public/preview.png)
+
+---
+
+## 📂 Project Structure
+
+* `src/components/` — reusable UI components
+* `src/scenes/` — Three.js scene and 3D logic
+* `src/hooks/` — scroll & animation logic
+* `src/store/` — Zustand state management
+* `src/styles/` — global styling
+* `src/utils/` — helpers and utilities
+* `public/` — static assets
+
+---
+
+## ⚙️ Getting Started
 
 Install dependencies:
 
@@ -10,40 +64,34 @@ Install dependencies:
 npm install
 ```
 
-Start the development environment:
+Run development server:
 
 ```bash
 npm run dev
 ```
 
-## Production build
+---
+
+## 🏗 Production Build
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Project structure
+---
 
-- `src/components/` — reusable interactive UI components
-- `src/scenes/` — modular Three.js scene and object components
-- `src/hooks/` — scroll integration and cinematic timeline hooks
-- `src/store/` — Zustand slices and centralized application state
-- `src/styles/` — global theme and layout styling
-- `src/utils/` — lightweight helpers and device detection
-- `public/` — static assets and fallback directories
+## 🔍 Keywords
 
-## Features
+UI UX Developer, Frontend Developer, React Developer, Three.js Developer, GSAP Animation, Saurabh Gupta Portfolio
 
-- Smooth Lenis-powered scrolling
-- GSAP ScrollTrigger timeline and scroll state sync
-- React Three Fiber canvas with postprocessing
-- Custom cursor, magnetic buttons, and interactive overlay
-- Loader screen with progress animation
-- Responsive glassmorphism design system
+---
 
-## Notes
+## 📬 Contact
 
-- Designed for performance and smoothness on modern devices.
-- State is driven through Zustand and used to coordinate UI and 3D motion.
-- The experience is intended to feel cinematic and immersive.
+* GitHub: [https://github.com/SaurabhDcruz](https://github.com/SaurabhDcruz)
+* Email: [saurabhdcruz786@gmail.com](mailto:saurabhdcruz786@gmail.com)
+
+---
+
+⭐ If you like this project, feel free to star the repository.
