@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import useStore from '@/store/index.js'
+import { getLenis } from '@/utils/lenisRegistry.js'
 
 const PARTICLE_COUNT = 180
 const LAYER_CONFIGS = [
@@ -87,7 +88,6 @@ export default function CinematicParticleField() {
   const linesRef = useRef(null)
   const groupRef = useRef(null)
   const cursor = useStore((state) => state.cursorState)
-  const scrollProgress = useStore((state) => state.scrollProgress)
 
   const { positions, colors, sizes, phases, depths, basePositions, baseColors } = useMemo(buildParticleField, [])
   const connections = useMemo(() => buildConnections(basePositions), [basePositions])
@@ -120,13 +120,9 @@ export default function CinematicParticleField() {
     return geometry
   }, [linePositions, lineColors, lineStrength])
 
-  const prevScrollRef = useRef(0)
-
   useFrame((state, delta) => {
-    const scrollDelta = Math.abs(scrollProgress - prevScrollRef.current)
-    prevScrollRef.current = scrollProgress
-
-    const speedFactor = scrollDelta > 0.001 ? 0.4 : 1.0;
+    const lenis = getLenis()
+    const scrollProgress = lenis ? lenis.scroll / lenis.limit : 0
 
     const elapsed = state.clock.elapsedTime * 0.38
     const mouseX = (cursor.x / window.innerWidth - 0.5) * 0.7
@@ -146,7 +142,7 @@ export default function CinematicParticleField() {
     for (let i = 0; i < PARTICLE_COUNT; i += 1) {
       const base = basePositions[i]
       const phase = phases[i]
-      const speed = (0.18 + (depths[i] * 0.12)) * speedFactor;
+      const speed = 0.18 + (depths[i] * 0.12)
       const drift = 0.25 + depths[i] * 0.28
 
       const px = base.x + Math.cos(elapsed * speed + phase) * (0.18 + depths[i] * 0.08)
@@ -155,7 +151,7 @@ export default function CinematicParticleField() {
 
       positionsAttr.array[i * 3] = px
       positionsAttr.array[i * 3 + 1] = py
-      positionsAttr.array[i * 3 + 2] = pz - scrollProgress * 0.2
+      positionsAttr.array[i * 3 + 2] = pz - (scrollProgress * 0.2)
 
       const depthFactor = THREE.MathUtils.clamp(1 - Math.abs(pz) / 7.5, 0.18, 1)
       const baseIndex = i * 3

@@ -23,7 +23,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   font-size: clamp(14px, 1.05vw, 16px);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
