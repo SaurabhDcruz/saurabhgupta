@@ -50,6 +50,8 @@ const DecodingText = ({ text, delay = 0, isHovered = false }) => {
     return <span className="decoding-text">{displayText || text}</span>
 }
 
+import { SciFiLogo } from '../common'
+
 export default function NeuralNav() {
     const menuOpen = useStore((state) => state.menuOpen)
     const toggleMenu = useStore((state) => state.toggleMenu)
@@ -101,9 +103,7 @@ export default function NeuralNav() {
                     aria-label="Access System"
                 >
                     <div className="trigger-visual">
-                        <div className="grid-squares">
-                            {[...Array(4)].map((_, i) => <span key={i} />)}
-                        </div>
+                        <SciFiLogo size={42} className="nav-logo-sync" />
                         <div className="scanner-line" />
                     </div>
                     <div className="trigger-info">

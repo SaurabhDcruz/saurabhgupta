@@ -53,9 +53,16 @@ export default function LoaderScreen() {
         <span className="loader-eyeball" />
         <div className="loader-copy">
           <p className="loader-label" ref={textRef}>
-            {welcomeText.split("").map((char, index) => (
-              <span key={index} className="char" style={{ display: 'inline-block', whiteSpace: char === " " ? 'pre' : 'normal' }}>
-                {char}
+            {welcomeText.split(" ").map((word, wIndex) => (
+              <span key={wIndex} className="word" style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+                {word.split("").map((char, cIndex) => (
+                  <span key={cIndex} className="char" style={{ display: 'inline-block' }}>
+                    {char}
+                  </span>
+                ))}
+                {wIndex < welcomeText.split(" ").length - 1 && (
+                  <span className="char" style={{ display: 'inline-block', whiteSpace: 'pre' }}> </span>
+                )}
               </span>
             ))}
           </p>
