@@ -3,7 +3,7 @@ import './App.css'
 import {
   LoaderScreen,
   CustomCursor,
-  NavigationOverlay,
+  NeuralNav,
   ScrollProgress,
   CanvasContainer,
   FooterSection
@@ -55,7 +55,7 @@ function App() {
       <div className="spotlight" />
       <LoaderScreen />
       <CustomCursor />
-      <NavigationOverlay />
+      <NeuralNav />
       <ScrollProgress />
       <CanvasContainer />
 

@@ -1,4 +1,4 @@
-export { default as NavigationOverlay } from './NavigationOverlay';
+export { default as NeuralNav } from './NeuralNav';
 export { default as FooterSection } from './FooterSection';
 export { default as LoaderScreen } from './LoaderScreen';
 export { default as ScrollProgress } from './ScrollProgress';

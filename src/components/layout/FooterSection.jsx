@@ -50,36 +50,35 @@ export default function FooterSection() {
 
     return (
         <footer className="footer-section">
-            {/* Top divider */}
-            <div className="footer-divider" />
+            <div className="footer-hud-bg" />
+            <div className="footer-divider">
+                <div className="scan-line" />
+            </div>
 
             <div className="footer-inner">
                 {/* Col 1 – About */}
                 <div className="footer-col">
-                    <h4 className="footer-col-title">About Me</h4>
+                    <div className="col-header">
+                        <span className="col-id">//01</span>
+                        <h4 className="footer-col-title">About Me</h4>
+                    </div>
                     <p className="footer-body">
                         Professional developer specialising in creating exceptional digital
                         experiences. Available for freelance opportunities.
                     </p>
-                    <div className="footer-social">
-                        {content.hero.social.map((item) => (
-                            <a
-                                key={item.label}
-                                href={item.href}
-                                target="_blank"
-                                rel="noreferrer"
-                                aria-label={item.label}
-                                className="footer-social-link"
-                            >
-                                {socialIcons[item.label]}
-                            </a>
-                        ))}
+                    <div className="footer-system-log">
+                        <div className="log-line"><span className="tag">[LOG]</span> UPTIME_99.9%</div>
+                        <div className="log-line"><span className="tag">[LOG]</span> CORE_STABLE</div>
+                        <div className="log-line"><span className="tag">[LOG]</span> LINK_ACTIVE</div>
                     </div>
                 </div>
 
                 {/* Col 2 – Quick Links */}
                 <div className="footer-col">
-                    <h4 className="footer-col-title">Quick Links</h4>
+                    <div className="col-header">
+                        <span className="col-id">//02</span>
+                        <h4 className="footer-col-title">Quick Links</h4>
+                    </div>
                     <ul className="footer-links">
                         {quickLinks.map((link) => (
                             <li key={link.id}>
@@ -88,6 +87,7 @@ export default function FooterSection() {
                                     className={`footer-link ${link.highlight ? 'footer-link--accent' : ''}`}
                                     onClick={() => scrollTo(link.id)}
                                 >
+                                    <span className="link-arrow">›</span>
                                     {link.label}
                                 </button>
                             </li>
@@ -97,7 +97,10 @@ export default function FooterSection() {
 
                 {/* Col 3 – Contact Info */}
                 <div className="footer-col">
-                    <h4 className="footer-col-title">Contact Info</h4>
+                    <div className="col-header">
+                        <span className="col-id">//03</span>
+                        <h4 className="footer-col-title">Contact Info</h4>
+                    </div>
                     <ul className="footer-contact-list">
                         <li>
                             <span className="footer-contact-label">Phone</span>
@@ -111,50 +114,56 @@ export default function FooterSection() {
                                 {content.contact.email}
                             </a>
                         </li>
-                        <li>
-                            <span className="footer-contact-label">Address</span>
-                            <span className="footer-contact-value">{content.contact.address}</span>
-                        </li>
                     </ul>
                 </div>
 
                 {/* Col 4 – Newsletter */}
                 <div className="footer-col">
-                    <h4 className="footer-col-title">Newsletter</h4>
-                    <p className="footer-body">Get updates on new projects and blog posts.</p>
+                    <div className="col-header">
+                        <span className="col-id">//04</span>
+                        <h4 className="footer-col-title">Newsletter</h4>
+                    </div>
                     <form className="footer-newsletter" onSubmit={handleSubscribe}>
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Your email"
-                            aria-label="Newsletter email"
-                            className="footer-input"
-                            required
-                        />
+                        <div className="input-group">
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="ACCESS_ID@MAIL.SYS"
+                                className="footer-input"
+                                required
+                            />
+                            <div className="input-corner" />
+                        </div>
                         <button type="submit" className="footer-subscribe-btn">
-                            {subscribed ? '✓ Subscribed!' : 'Subscribe'}
+                            {subscribed ? 'DATA_SYNC_OK' : 'CONNECT_FEED'}
                         </button>
                     </form>
                 </div>
             </div>
 
-            {/* Bottom bar */}
             <div className="footer-bottom">
-                <p className="footer-copyright">© 2026 All rights reserved.</p>
-                <div className="footer-bottom-social">
-                    {content.hero.social.map((item) => (
-                        <a
-                            key={item.label}
-                            href={item.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label={item.label}
-                            className="footer-bottom-icon"
-                        >
-                            {socialIcons[item.label]}
-                        </a>
-                    ))}
+                <div className="bottom-left">
+                    <div className="status-pulse" />
+                    <span className="footer-copyright">© 2026 DcruzPortfolio.info // ALL_RIGHTS_RESERVED</span>
+                </div>
+                <div className="bottom-right">
+                    <span className="sys-ver">v2.1.0_STABLE</span>
+                    <div className="footer-bottom-social">
+                        {content.hero.social.map((item) => (
+                            <a
+                                key={item.label}
+                                href={item.href}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="footer-social-node"
+                            >
+                                <span className="bracket">[</span>
+                                <span className="icon-wrap">{socialIcons[item.label]}</span>
+                                <span className="bracket">]</span>
+                            </a>
+                        ))}
+                    </div>
                 </div>
             </div>
         </footer>
