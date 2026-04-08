@@ -120,7 +120,14 @@ export default function CinematicParticleField() {
     return geometry
   }, [linePositions, lineColors, lineStrength])
 
+  const prevScrollRef = useRef(0)
+
   useFrame((state, delta) => {
+    const scrollDelta = Math.abs(scrollProgress - prevScrollRef.current)
+    prevScrollRef.current = scrollProgress
+
+    const speedFactor = scrollDelta > 0.001 ? 0.4 : 1.0;
+
     const elapsed = state.clock.elapsedTime * 0.38
     const mouseX = (cursor.x / window.innerWidth - 0.5) * 0.7
     const mouseY = (cursor.y / window.innerHeight - 0.5) * 0.5
@@ -139,7 +146,7 @@ export default function CinematicParticleField() {
     for (let i = 0; i < PARTICLE_COUNT; i += 1) {
       const base = basePositions[i]
       const phase = phases[i]
-      const speed = 0.18 + (depths[i] * 0.12)
+      const speed = (0.18 + (depths[i] * 0.12)) * speedFactor;
       const drift = 0.25 + depths[i] * 0.28
 
       const px = base.x + Math.cos(elapsed * speed + phase) * (0.18 + depths[i] * 0.08)
