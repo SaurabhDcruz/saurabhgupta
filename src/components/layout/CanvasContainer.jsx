@@ -1,3 +1,4 @@
+import * as THREE from 'three'
 import { Suspense, useEffect, useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Html } from '@react-three/drei'
@@ -27,7 +28,7 @@ export default function CanvasContainer() {
       <Canvas
         camera={{ position: [0, 1.5, 8], fov: 36 }}
         dpr={[1, 1.5]}
-        shadows
+        shadows={{ type: THREE.PCFShadowMap }}
         gl={{
           powerPreference: "high-performance",
           antialias: false,

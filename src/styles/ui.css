@@ -2877,3 +2877,109 @@
     display: none;
   }
 }
+
+/* FUTURISTIC TECH NODES */
+
+/* FLOATING TECH NODE */
+.floating-cv-node {
+  position: fixed;
+  top: 2.5rem;
+  right: 2.5rem;
+  z-index: 100;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.node-core {
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 18, 38, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b5cf6;
+  font-size: 0.7rem;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+  position: relative;
+}
+
+.node-ring {
+  position: absolute;
+  inset: -6px;
+  border: 1px dashed rgba(56, 189, 248, 0.4);
+  border-radius: 50%;
+  animation: rotateNode 10s linear infinite;
+}
+
+.node-ring::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -2px;
+  width: 4px;
+  height: 4px;
+  background: #38bdf8;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+@keyframes rotateNode {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.floating-cv-node:hover .node-core {
+  border-color: #38bdf8;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+  transform: scale(1.1);
+}
+
+.floating-cv-node:hover .node-ring {
+  border-color: #8b5cf6;
+  animation-duration: 4s;
+}
+
+.node-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.2);
+  animation: nodePulse 2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes nodePulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .floating-cv-node {
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+  }
+}
