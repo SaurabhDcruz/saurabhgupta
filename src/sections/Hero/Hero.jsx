@@ -1,6 +1,7 @@
 import React from 'react';
 import { AnimatedText, ScrollSection } from '@/components/common';
 import content from '@/constants/content';
+import FloatingCV from '@/components/ui/FloatingCV';
 
 const socialIcons = {
     Facebook: (
@@ -34,6 +35,7 @@ const Hero = React.memo(({ heroCardRef }) => {
                 </h1>
                 <AnimatedText className="hero-typewriter" />
                 <p className="hero-description">{content.hero.description}</p>
+                <FloatingCV />
                 <div className="social-links">
                     {content.hero.social.map((item) => (
                         <a

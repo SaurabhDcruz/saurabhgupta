@@ -35,29 +35,31 @@ export default function useCinematicTimeline() {
       },
     })
 
-    gsap.fromTo(
-      '#hero .hero-copy',
-      { y: 56, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.6, ease: 'power3.out' }
-    )
+    // Hero Copy animation
+    if (document.querySelector('#hero .hero-copy')) {
+      gsap.fromTo(
+        '#hero .hero-copy',
+        { y: 56, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.6, ease: 'power3.out' }
+      )
+    }
 
-    gsap.fromTo(
-      '#hero .animated-char',
-      { y: 32, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.05, ease: 'power3.out', stagger: 0.03, delay: 0.15 }
-    )
+    if (document.querySelector('#hero .hero-description')) {
+      gsap.fromTo(
+        '#hero .hero-description',
+        { y: 36, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.25 }
+      )
+    }
 
-    gsap.fromTo(
-      '#hero .hero-description',
-      { y: 36, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.25 }
-    )
-
-    gsap.fromTo(
-      '#hero .hero-actions',
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.95, ease: 'power3.out', delay: 0.35 }
-    )
+    const heroSocials = document.querySelector('#hero .social-links')
+    if (heroSocials) {
+      gsap.fromTo(
+        heroSocials,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.95, ease: 'power3.out', delay: 0.35 }
+      )
+    }
 
     const createReveal = (selector, config = {}) => {
       ScrollTrigger.batch(selector, {
@@ -92,20 +94,22 @@ export default function useCinematicTimeline() {
     createReveal('.contact-card')
 
     // Timeline Line Growth Animation
-    gsap.fromTo(
-      '.timeline-line',
-      { scaleY: 0, transformOrigin: 'top center' },
-      {
-        scaleY: 1,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.resume-timeline',
-          start: 'top 80%',
-          end: 'bottom 80%',
-          scrub: true,
-        },
-      }
-    )
+    if (document.querySelector('.timeline-line') && document.querySelector('.resume-timeline')) {
+      gsap.fromTo(
+        '.timeline-line',
+        { scaleY: 0, transformOrigin: 'top center' },
+        {
+          scaleY: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.resume-timeline',
+            start: 'top 80%',
+            end: 'bottom 80%',
+            scrub: true,
+          },
+        }
+      )
+    }
 
     // Left Items Reveal
     ScrollTrigger.batch('.timeline-item.left', {
