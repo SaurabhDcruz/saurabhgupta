@@ -60,7 +60,8 @@ export default function AnimatedText({ phrases = [], className = '' }) {
     const getParticle = () => poolRef.current.find((item) => !item.active) || null
 
     const spawnParticles = (x, y) => {
-      const count = 12 // Increased particle count
+      const isMobile = window.matchMedia('(max-width: 768px)').matches
+      const count = isMobile ? 3 : 6 // Reduced from 12 to 6 on desktop, 3 on mobile
       for (let i = 0; i < count; i += 1) {
         const particle = getParticle()
         if (!particle) break

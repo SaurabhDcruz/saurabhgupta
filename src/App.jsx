@@ -10,6 +10,7 @@ import {
 import Hero from '@/sections/Hero/Hero.jsx'
 import useLenisScroll from '@/hooks/useLenisScroll.js'
 import useCinematicTimeline from '@/hooks/useCinematicTimeline.js'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 // Lazy load heavy sections directly from source to ensure proper code splitting
 const Services = React.lazy(() => import('@/sections/Services/Services.jsx'))
@@ -20,6 +21,7 @@ const Contact = React.lazy(() => import('@/sections/Contact/Contact.jsx'))
 const CanvasContainer = React.lazy(() => import('@/components/layout/CanvasContainer.jsx'))
 
 function App() {
+  const [showCanvas, setShowCanvas] = React.useState(false)
   useLenisScroll()
   useCinematicTimeline()
 
@@ -56,7 +58,22 @@ function App() {
     }
 
     window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
+
+    // Delay 3D Canvas mounting to prioritize Hero text and LCP
+    const timer = setTimeout(() => {
+      setShowCanvas(true)
+    }, 1500)
+
+    // Global ScrollTrigger refresh after sections might have loaded
+    const refreshTimer = setTimeout(() => {
+      ScrollTrigger.refresh()
+    }, 2500)
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      clearTimeout(timer)
+      clearTimeout(refreshTimer)
+    }
   }, [])
 
   return (
@@ -66,9 +83,12 @@ function App() {
       <CustomCursor />
       <NeuralNav />
       <ScrollProgress />
-      <React.Suspense fallback={null}>
-        <CanvasContainer />
-      </React.Suspense>
+
+      {showCanvas && (
+        <React.Suspense fallback={null}>
+          <CanvasContainer />
+        </React.Suspense>
+      )}
 
       <main className="content-shell">
         <Hero heroCardRef={heroCardRef} />
