@@ -94,8 +94,10 @@
 
 .loader-fill {
   height: 100%;
+  width: 100%;
   background: linear-gradient(90deg, #8b5cf6, #38d6f8);
-  transition: width 0.2s ease;
+  transition: transform 0.2s ease;
+  will-change: transform;
 }
 
 .loader-percent {
@@ -125,8 +127,9 @@
   background: linear-gradient(180deg, rgba(15, 18, 38, 0.78), rgba(8, 10, 24, 0.65));
   border: 1px solid rgba(139, 92, 246, 0.13);
   box-shadow: 0 48px 140px rgba(0, 0, 0, 0.38);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  will-change: backdrop-filter;
   position: relative;
   z-index: 2;
 }
@@ -386,6 +389,7 @@
   padding: 3.5rem 2.5rem;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  will-change: backdrop-filter;
   overflow: hidden;
 }
 
@@ -1371,7 +1375,8 @@
   display: grid;
   place-items: center;
   z-index: 99;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(16px);
+  will-change: backdrop-filter;
 }
 
 .system-scanline {
@@ -1388,11 +1393,11 @@
 
 @keyframes scan {
   from {
-    top: -10%;
+    transform: translateY(-110%);
   }
 
   to {
-    top: 110%;
+    transform: translateY(110vh);
   }
 }
 
@@ -1480,7 +1485,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(25px) contrast(1.1);
+  backdrop-filter: blur(16px) contrast(1.1);
+  will-change: backdrop-filter;
 }
 
 .glitch-layer {
@@ -1542,8 +1548,8 @@
       calc(100% - 35px) 100%, 0 100%);
   padding: 40px 30px;
   box-shadow:
-    0 0 100px rgba(0, 0, 0, 1),
-    inset 0 0 40px rgba(139, 92, 246, 0.1);
+    0 0 60px rgba(0, 0, 0, 1),
+    inset 0 0 30px rgba(139, 92, 246, 0.1);
 }
 
 /* Sci-Fi Corners (JSX: .frame-corner) */
@@ -2158,7 +2164,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
   padding: 0;
 }
 
@@ -2171,7 +2177,7 @@
 
 .footer-link:hover {
   color: #38d6f8;
-  padding-left: 5px;
+  transform: translateX(5px);
 }
 
 .footer-link:hover .link-arrow {
@@ -2228,7 +2234,7 @@
   color: white;
   font-size: 13px;
   letter-spacing: 1px;
-  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), border-color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
   /* TACTICAL NOTCHED CORNER */
   clip-path: polygon(0 0, 92% 0, 100% 25%, 100% 100%, 0 100%);
 }
@@ -2239,7 +2245,7 @@
   border-left-color: #38d6f8;
   background: rgba(56, 214, 248, 0.08);
   box-shadow: -10px 0 20px rgba(56, 214, 248, 0.1);
-  padding-left: 22px;
+  transform: translateX(4px);
 }
 
 .footer-input:focus~.input-corner {
@@ -2271,7 +2277,7 @@
   text-transform: uppercase;
   letter-spacing: 3px;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), background 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
   position: relative;
   overflow: hidden;
   /* AGGRESSIVE NOTCHED GEOMETRY */
@@ -2292,7 +2298,7 @@
   color: white;
   border-color: #8b5cf6;
   box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
-  letter-spacing: 5px;
+  transform: translateY(-2px);
 }
 
 .footer-subscribe-btn:hover::after {
@@ -2469,7 +2475,7 @@
     right: 8px;
     scale: 0.8;
     background: rgba(13, 13, 20, 0.95);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(12px);
     padding: 3px;
     border: 1px solid rgba(56, 214, 248, 0.3);
     border-radius: 0 !important;

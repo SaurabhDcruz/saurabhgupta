@@ -3,7 +3,7 @@ import { ScrollSection } from '@/components/common';
 import { ResumeCard } from '@/components/ui';
 import content from '@/constants/content';
 
-const Resume = () => {
+const Resume = React.memo(() => {
     return (
         <ScrollSection id="resume" index={2} title="My Resume" subtitle="Education and professional milestones that define my journey.">
             <div className="resume-timeline">
@@ -44,6 +44,6 @@ const Resume = () => {
             </div>
         </ScrollSection>
     );
-};
+});
 
 export default Resume;

@@ -108,7 +108,7 @@ export default function NeuralNav() {
                         <div className="scanner-line" />
                     </div>
                     <div className="trigger-info">
-                        <span className="title">CORE_ACCESS</span>
+                        <span className="title">S D'cruz</span>
                         <span className="version">SYS_v2.1.0</span>
                     </div>
                 </button>
@@ -133,7 +133,7 @@ export default function NeuralNav() {
                         <div className="terminal-top">
                             <div className="top-left">
                                 <div className="pulse-dot" />
-                                <span className="terminal-id">LOG_ID: ANTIGRAVITY_0x7FF</span>
+                                <span className="terminal-id">LOG_ID: SDCruz_0x7FF</span>
                             </div>
                             <div className="top-right">ACCESS_KEY://{Math.random().toString(16).substr(2, 6).toUpperCase()}</div>
                         </div>
@@ -172,7 +172,7 @@ export default function NeuralNav() {
                                 rel="noopener noreferrer"
                                 className="tactical-download-btn"
                             >
-                                <span className="btn-prefix">GET_DATA://</span>
+                                <span className="btn-prefix">GET:</span>
                                 <span className="btn-label">DOWNLOAD_CV_v2.0.pdf</span>
                                 <div className="btn-scanner" />
                             </a>
