@@ -28,7 +28,14 @@ export default function CanvasContainer() {
         camera={{ position: [0, 1.5, 8], fov: 36 }}
         dpr={[1, 1.5]}
         shadows
-        gl={{ antialias: true, alpha: true, preserveDrawingBuffer: false }}
+        gl={{
+          powerPreference: "high-performance",
+          antialias: false,
+          stencil: false,
+          depth: true,
+          alpha: true,
+          preserveDrawingBuffer: false
+        }}
       >
         <color attach="background" args={[0x05070f]} />
         <Suspense fallback={<Html center className="canvas-fallback">Loading scene...</Html>}>

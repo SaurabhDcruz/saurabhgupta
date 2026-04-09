@@ -3,7 +3,7 @@ import { ScrollSection, MagneticButton } from '@/components/common';
 import useContactForm from '@/hooks/useContactForm';
 import content from '@/constants/content';
 
-const Contact = () => {
+const Contact = React.memo(() => {
     const { formRef, isSending, statusMessage, errors, setErrors, sendEmail } = useContactForm();
 
     return (
@@ -101,6 +101,6 @@ const Contact = () => {
             </div>
         </ScrollSection>
     );
-};
+});
 
 export default Contact;

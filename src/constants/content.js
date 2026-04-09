@@ -4,7 +4,7 @@ const portfolioContent = {
     title: "Hi, I'm Saurabh Gupta",
     subtitle: 'UI UX Developer & Frontend Developer',
     description:
-      'I am Saurabh Gupta, a dedicated UI UX Developer and Frontend Developer specialized in building modern, immersive web experiences using React, GSAP, and Three.js. Based in India, I focus on high-performance applications that blend cinematic design with robust engineering.',
+      'A dedicated UI UX Developer and Frontend Developer specialized in building modern, immersive web experiences using React, GSAP, and Three.js. Based in India, I focus on high-performance applications that blend cinematic design with robust engineering.',
     social: [
       { label: 'Facebook', href: 'https://www.facebook.com/saurabhdcruz786' },
       { label: 'Instagram', href: 'https://www.instagram.com/saurabhdcruz786' },
