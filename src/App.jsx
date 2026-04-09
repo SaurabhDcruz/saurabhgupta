@@ -27,23 +27,31 @@ function App() {
 
   useEffect(() => {
     const handleMouseMove = (e) => {
+      // Disable on touch devices for performance
+      if (window.matchMedia('(pointer: coarse)').matches) return
+
       const { clientX, clientY } = e
-      const xPercent = (clientX / window.innerWidth) * 100
-      const yPercent = (clientY / window.innerHeight) * 100
 
-      document.documentElement.style.setProperty('--mouse-x', `${xPercent}%`)
-      document.documentElement.style.setProperty('--mouse-y', `${yPercent}%`)
+      // Throttle updates using requestAnimationFrame
+      if (window._mouseFrame) cancelAnimationFrame(window._mouseFrame)
+      window._mouseFrame = requestAnimationFrame(() => {
+        const xPercent = (clientX / window.innerWidth) * 100
+        const yPercent = (clientY / window.innerHeight) * 100
 
-      if (heroCardRef.current) {
-        const rect = heroCardRef.current.getBoundingClientRect()
-        const cardX = clientX - (rect.left + rect.width / 2)
-        const cardY = clientY - (rect.top + rect.height / 2)
+        document.documentElement.style.setProperty('--mouse-x', `${xPercent}%`)
+        document.documentElement.style.setProperty('--mouse-y', `${yPercent}%`)
 
-        const rotateX = (cardY / (rect.height / 2)) * -5
-        const rotateY = (cardX / (rect.width / 2)) * 5
+        if (heroCardRef.current) {
+          const rect = heroCardRef.current.getBoundingClientRect()
+          const cardX = clientX - (rect.left + rect.width / 2)
+          const cardY = clientY - (rect.top + rect.height / 2)
 
-        heroCardRef.current.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
-      }
+          const rotateX = (cardY / (rect.height / 2)) * -5
+          const rotateY = (cardX / (rect.width / 2)) * 5
+
+          heroCardRef.current.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+        }
+      })
     }
 
     window.addEventListener('mousemove', handleMouseMove)

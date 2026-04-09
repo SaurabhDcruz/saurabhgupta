@@ -24,7 +24,7 @@ const socialIcons = {
     ),
 };
 
-const Hero = ({ heroCardRef }) => {
+const Hero = React.memo(({ heroCardRef }) => {
     return (
         <ScrollSection id="hero" pure={true} className="section intro-section">
             <div className="hero-copy" ref={heroCardRef}>
@@ -51,6 +51,6 @@ const Hero = ({ heroCardRef }) => {
             </div>
         </ScrollSection>
     );
-};
+});
 
 export default Hero;

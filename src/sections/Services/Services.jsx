@@ -3,7 +3,7 @@ import { ScrollSection } from '@/components/common';
 import { ServiceCard } from '@/components/ui';
 import content from '@/constants/content';
 
-const Services = () => {
+const Services = React.memo(() => {
     return (
         <ScrollSection id="services" index={0} title="What I Do" subtitle="A comprehensive set of services rooted in design and development.">
             <div className="section-grid feature-grid">
@@ -13,6 +13,6 @@ const Services = () => {
             </div>
         </ScrollSection>
     );
-};
+});
 
 export default Services;

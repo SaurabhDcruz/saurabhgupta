@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollSection } from '@/components/common';
 import content from '@/constants/content';
 
-const Clients = () => {
+const Clients = React.memo(() => {
     return (
         <ScrollSection id="clients" index={3} title="Awesome Clients" subtitle="Trusted by brands and partners across design, development and technology.">
             <div className="neural-blade-system">
@@ -31,6 +31,6 @@ const Clients = () => {
             </div>
         </ScrollSection>
     );
-};
+});
 
 export default Clients;

@@ -67,7 +67,7 @@ export default function LoaderScreen() {
             ))}
           </p>
           <div className="loader-bar">
-            <div className="loader-fill" style={{ width: `${loadingProgress}%` }} />
+            <div className="loader-fill" style={{ transform: `scaleX(${loadingProgress / 100})`, transformOrigin: 'left' }} />
           </div>
           <p className="loader-percent">{loadingProgress}%</p>
         </div>
