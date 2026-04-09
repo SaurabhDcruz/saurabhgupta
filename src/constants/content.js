@@ -4,7 +4,7 @@ const portfolioContent = {
     title: "Hi, I'm Saurabh Gupta",
     subtitle: 'UI UX Developer & Frontend Developer',
     description:
-      'A dedicated UI UX Developer and Frontend Developer specialized in building modern, immersive web experiences using React, GSAP, and Three.js. Based in India, I focus on high-performance applications that blend cinematic design with robust engineering.',
+      'A top-tier UI UX Developer and Frontend Developer specialized in crafting premium, high-performance web experiences using React, GSAP, and Three.js. Based in India, I deliver cinematic digital products that combine cutting-edge design with senior-level engineering for global brands.',
     social: [
       { label: 'Facebook', href: 'https://www.facebook.com/saurabhdcruz786' },
       { label: 'Instagram', href: 'https://www.instagram.com/saurabhdcruz786' },
@@ -13,38 +13,38 @@ const portfolioContent = {
   },
   services: [
     {
-      title: 'Web Designing',
+      title: 'UI UX Design',
       description:
-        'When you need team setting the first priority to each individual as they have to prepare.',
+        'Crafting intuitive, user-centric interfaces for web and mobile. Specialized in wireframing, high-fidelity prototyping, and modern system UI design.',
       category: 'Design',
     },
     {
-      title: 'Web Development',
+      title: 'Frontend Development',
       description:
-        'A web application is a software for many users and customers, delivering capable services with strong frontend logic.',
+        'Building high-performance, responsive React applications with seamless GSAP animations and robust state management for complex web systems.',
       category: 'Development',
     },
     {
-      title: 'App Development',
+      title: 'Creative Coding',
       description:
-        'When you need a team setting the first priority to each individual as they work through the solution.',
+        'Pushing boundaries with Three.js and WebGL to create immersive, 3D cinematic experiences that captivate users and tell a story.',
       category: 'Creative',
     },
     {
-      title: 'Mobile App Designing',
-      description: 'Professional mobile app development capabilities for the mobile platform.',
+      title: 'Mobile App Design',
+      description: 'Expertise in cross-platform mobile designing focusing on accessibility, usability, and modern aesthetic standards.',
       category: 'Design',
     },
     {
-      title: 'SEO',
+      title: 'SEO Strategy',
       description:
-        'Enhance your online visibility and attract more customers with our SEO services.',
+        'Technical SEO and site architecture optimization to improve search rankings, site speed, and discoverability for personal brands.',
       category: 'Growth',
     },
     {
-      title: 'Freelancing',
+      title: 'Strategy & Consulting',
       description:
-        'Unlock the flexibility and freedom of working independently with our freelancing services.',
+        'Advising on technical architecture, performance optimization, and scalable frontend solutions for startups and enterprises.',
       category: 'Strategy',
     },
   ],
