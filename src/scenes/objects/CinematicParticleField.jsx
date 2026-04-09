@@ -4,14 +4,19 @@ import * as THREE from 'three'
 import useStore from '@/store/index.js'
 import { getLenis } from '@/utils/lenisRegistry.js'
 
-const PARTICLE_COUNT = 120
-const LAYER_CONFIGS = [
+const IS_MOBILE = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+const PARTICLE_COUNT = IS_MOBILE ? 60 : 120
+const LAYER_CONFIGS = IS_MOBILE ? [
+  { count: 20, radius: 2.8, size: 2.2, hue: 255, brightness: 0.96, drift: 0.12 },
+  { count: 20, radius: 4.0, size: 1.6, hue: 220, brightness: 0.76, drift: 0.08 },
+  { count: 20, radius: 5.8, size: 1.1, hue: 190, brightness: 0.52, drift: 0.05 },
+] : [
   { count: 40, radius: 2.8, size: 1.9, hue: 255, brightness: 0.96, drift: 0.12 },
   { count: 40, radius: 4.0, size: 1.4, hue: 220, brightness: 0.76, drift: 0.08 },
   { count: 40, radius: 5.8, size: 0.95, hue: 190, brightness: 0.52, drift: 0.05 },
 ]
 const CONNECTION_THRESHOLD = 2.3
-const MAX_CONNECTIONS = 2
+const MAX_CONNECTIONS = IS_MOBILE ? 1 : 2
 
 function buildParticleField() {
   const positions = new Float32Array(PARTICLE_COUNT * 3)

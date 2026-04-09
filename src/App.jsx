@@ -5,7 +5,6 @@ import {
   CustomCursor,
   NeuralNav,
   ScrollProgress,
-  CanvasContainer,
   FooterSection
 } from '@/components/layout'
 import Hero from '@/sections/Hero/Hero.jsx'
@@ -18,6 +17,7 @@ const Portfolio = React.lazy(() => import('@/sections/Portfolio/Portfolio.jsx'))
 const Resume = React.lazy(() => import('@/sections/Resume/Resume.jsx'))
 const Clients = React.lazy(() => import('@/sections/Clients/Clients.jsx'))
 const Contact = React.lazy(() => import('@/sections/Contact/Contact.jsx'))
+const CanvasContainer = React.lazy(() => import('@/components/layout/CanvasContainer.jsx'))
 
 function App() {
   useLenisScroll()
@@ -38,10 +38,11 @@ function App() {
         const xPercent = (clientX / window.innerWidth) * 100
         const yPercent = (clientY / window.innerHeight) * 100
 
-        document.documentElement.style.setProperty('--mouse-x', `${xPercent}%`)
-        document.documentElement.style.setProperty('--mouse-y', `${yPercent}%`)
-
+        // Only update variables on the hero card if it exists
         if (heroCardRef.current) {
+          heroCardRef.current.style.setProperty('--mouse-x', `${xPercent}%`)
+          heroCardRef.current.style.setProperty('--mouse-y', `${yPercent}%`)
+
           const rect = heroCardRef.current.getBoundingClientRect()
           const cardX = clientX - (rect.left + rect.width / 2)
           const cardY = clientY - (rect.top + rect.height / 2)
@@ -65,7 +66,9 @@ function App() {
       <CustomCursor />
       <NeuralNav />
       <ScrollProgress />
-      <CanvasContainer />
+      <React.Suspense fallback={null}>
+        <CanvasContainer />
+      </React.Suspense>
 
       <main className="content-shell">
         <Hero heroCardRef={heroCardRef} />

@@ -7,6 +7,8 @@ const PortfolioCard = ({ image, title, type }) => (
                 src={image}
                 alt={`${title} - ${type} projects by Saurabh Gupta`}
                 loading="lazy"
+                width="640"
+                height="360"
                 className="portfolio-image"
             />
         </div>
