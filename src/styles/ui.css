@@ -160,6 +160,7 @@
   letter-spacing: 0.32em;
   text-transform: uppercase;
   font-size: var(--fs-xs);
+  transition: all 0.3s ease;
 }
 
 .hero-title {
@@ -1855,6 +1856,15 @@
     width: 60px;
     height: 60px;
   }
+
+  .hero-typewriter {
+    margin: 0;
+  }
+
+  .hero-social-node {
+    height: 36px !important;
+    width: 36px !important;
+  }
 }
 
 
@@ -2905,7 +2915,7 @@
   align-items: center;
   justify-content: center;
   color: #8b5cf6;
-  font-size: 0.7rem;
+  font-size: 1.1rem;
   font-weight: 700;
   backdrop-filter: blur(8px);
   transition: all 0.3s ease;
@@ -2977,9 +2987,21 @@
 
 @media (max-width: 768px) {
   .floating-cv-node {
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 48px;
-    height: 48px;
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+  }
+
+  .node-core {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-cv-node {
+    top: 4.3rem;
+    /* Move down slightly to clear nav on some devices */
+    right: 1.2rem;
   }
 }
