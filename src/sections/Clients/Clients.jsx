@@ -2,25 +2,30 @@ import React from 'react';
 import { ScrollSection } from '@/components/common';
 import content from '@/constants/content';
 
-const Clients = React.memo(() => {
+const TechStack = React.memo(() => {
     return (
-        <ScrollSection id="clients" index={3} title="Awesome Clients" subtitle="Trusted by brands and partners across design, development and technology.">
+        <ScrollSection 
+            id="skills-ecosystem" 
+            index={3} 
+            title="Tech Stack & Ecosystem" 
+            subtitle="Production-proven frameworks, libraries, and tools used to build enterprise-grade frontend systems."
+        >
             <div className="neural-blade-system">
                 <div className="system-status-bar">
-                    <span className="bit">SYS_ACTIVE</span>
+                    <span className="bit">STACK_ACTIVE</span>
                     <span className="line" />
-                    <span className="bit">ID_VERIFIED</span>
+                    <span className="bit">ENGINEERING_READY</span>
                 </div>
                 <div className="blade-container">
-                    {content.clients.map((client, i) => (
-                        <div key={client} className="neural-blade">
+                    {content.competencies.map((item, i) => (
+                        <div key={item.name} className="neural-blade">
                             <div className="blade-skew-fix">
                                 <span className="blade-id">0{i + 1}</span>
                                 <div className="blade-content">
-                                    <h3 className="client-name">{client}</h3>
+                                    <h3 className="client-name">{item.name}</h3>
                                     <div className="data-bits">
-                                        <span>NV_LINK_ESTABLISHED</span>
-                                        <span>ENCRYPT_STABLE</span>
+                                        <span>CAT: {item.category}</span>
+                                        <span>STATUS: {item.exp}</span>
                                     </div>
                                 </div>
                                 <div className="blade-energy-core" />
@@ -33,4 +38,4 @@ const Clients = React.memo(() => {
     );
 });
 
-export default Clients;
+export default TechStack;

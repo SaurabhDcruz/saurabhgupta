@@ -32,7 +32,15 @@ const createParticle = (container) => {
   }
 }
 
-const typedPhrases = ['Web Designer.', 'Web Developer.', 'Professional Coder.']
+const typedPhrases = ['Senior UI Engineer.', 
+  'Frontend Architect.', 
+  'Building Scalable Web Apps.',
+  'Senior Frontend Developer.', 
+  'React & Next.js Expert.', 
+  'Crafting High-Performance UIs.',
+  'Design System Integrator.', 
+  'Component-Driven Development.'
+]
 
 export default function AnimatedText({ phrases = [], className = '' }) {
   const wrapperRef = useRef(null)
